@@ -1,0 +1,24 @@
+@import (css) url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Oswald:wght@500&display=swap');
+
+@desktop: ~"only screen and (min-width: 840px)";
+@wideMobile: ~"only screen and (min-width: 600px)";
+@hoverable: ~"(hover: hover)";
+
+
+@bkgColor: #d7e1e7;
+@accentBkgColor: rgb(12, 93, 185);
+@bkgColorSec: darken(@accentBkgColor, 10%);
+@bkgColorSecFaded: fade(@bkgColorSec, 85%);
+@linkColor: #0076de;
+
+@parallaxPerspective: 1px;
+@parallaxTranslateZ: -4px;
+@parallaxScale: unit(1 + (@parallaxTranslateZ * -1) / @parallaxPerspective);
+
+@navHeight: 50px;
+
+@import './fontello';
+@import './misc.less';
+@import './layout.less';
+@import './menu.less';
+@import './article.less';

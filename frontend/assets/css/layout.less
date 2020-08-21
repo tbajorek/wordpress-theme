@@ -1,0 +1,324 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: @bkgColor;
+    height: 100%;
+}
+
+input, button, textarea, body {
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+}
+
+a {
+    color: @linkColor;
+    transition: color 0.2s;
+    text-decoration: none;
+
+    &:hover {
+        color: lighten(@linkColor, 20%);
+    }
+}
+
+input,
+textarea {
+    outline: #00ccff00 2px solid;
+    outline-offset: -2px;
+    transition: outline-color 0.2s;
+
+    &:focus {
+        outline-color: #00ccff;
+    }
+}
+
+.page-wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1000px - 15px) 300px 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+    gap: 0 15px;
+    grid-template-areas:
+        "header header header header"
+        "nav nav nav nav"
+        ". before-main before-main ."
+        ". main main ."
+        ". aside aside . "
+        ". footer footer .";
+
+    @media @desktop {
+        grid-template-areas:
+            "header header header header"
+            "nav nav nav nav"
+            ". before-main before-main ."
+            ". main aside ."
+            ". . . ."
+            ". footer footer .";
+    }
+
+    .no-sidebar & {
+        grid-template-areas:
+            "header header header header"
+            "nav nav nav nav"
+            ". before-main before-main ."
+            ". main main ."
+            ". . . ."
+            ". footer footer .";
+    }
+
+    .page-before-main {
+        grid-area: before-main;
+
+        .breadcrumbs {
+            margin-top: 15px;
+            color: rgba(0, 0, 0, 0.7);
+            background: #fff;
+            padding: 1em 15px;
+        }
+    }
+    
+    .page-main {
+        grid-area: main;
+        flex: 1;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+    }
+
+    .page-sidebar {
+        grid-area: aside;
+        margin-bottom: 15px;
+
+        @media @desktop {
+            margin-top: 15px;
+        }
+
+        .no-sidebar & {
+            display: none;
+        }
+    }
+
+    .page-footer {
+        grid-area: footer;
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 0.8em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .page-header {
+        overflow: hidden;
+        grid-area: header;
+        text-align: center; 
+        color: #fff;
+        text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+        position: relative;
+
+        .header-bkg,
+        .header-bkg-tint {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        .header-bkg {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header-content {
+            padding: 85px 15px;
+            opacity: 1;
+            transition: opacity 0.6s;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1300px;
+
+            .header-content-hidden & {
+                opacity: 0;
+            }
+
+            h1 {
+                font-weight: normal;
+                font-size: 2.4em;
+                margin: 20px 0;
+
+                @media @desktop {
+                    font-size: 3.6em;
+                }
+            }
+
+            p {
+                font-size: 1.2em;
+                font-style: italic;
+                opacity: 0.85;
+                margin: 10px 0;
+
+                @media @desktop {
+                    font-size: 1.4em;
+                }
+            }
+        }
+    }
+
+    .page-nav {
+        grid-area: nav;
+        color: #fff;
+        text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        height: @navHeight;
+        background-color: fade(@bkgColorSecFaded, 0);
+        transition: background-color 0.2s, box-shadow 0.2s;
+        box-shadow: rgba(0, 0, 0, 0) 0 0 15px;
+        
+        @media @desktop {
+            position: sticky;
+            margin-top: -@navHeight;
+
+            &::after {
+                content: '';
+                background: #fff;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                display: block;
+                pointer-events: none;
+                opacity: 1;
+                transition: opacity 0.2s;
+
+                .header-not-visible & {
+                    opacity: 0;
+                }
+            }
+        }
+        
+        .header-not-visible & {
+            background-color: @bkgColorSecFaded;
+            box-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+        }
+        
+        .menu-opened & {
+            background-color: @bkgColorSec;
+            box-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+        }
+        
+        .page-nav-inner {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1300px;
+            display: flex;
+            line-height: @navHeight;
+
+            @media @desktop {
+                padding: 0 15px;
+                max-width: 1300 + 2 * 15px;
+            }
+
+            .menu-toggler {
+
+                @media @desktop {
+                    display: none;
+                }
+            }
+
+            .page-menu-others {
+                display: flex;
+                flex: 1;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+    }
+
+    .page-menu-others, .not-found-block {
+        .search-form {
+            display: flex;
+            flex: 0;
+            transition: flex 0.2s;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 0 10px;
+            position: relative;
+
+            &::before {
+                font-size: 20px;
+                position: absolute;
+                margin: 0 6px;
+            }
+
+            &:focus,
+            &:focus-within {
+                flex: 1;
+            }
+
+            .search-input {
+                flex: 1;
+                border: none;
+                background: none;
+                color: #fff;
+                padding: 6px 6px 6px 32px;
+                text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+                width: 250px;
+
+                &::placeholder {
+                    color: #fff;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    .not-found-block {
+        .search-form {
+            .search-input {
+                &::placeholder {
+                    color: #666;
+                }
+                border: 2px solid #d7e1e7;
+            }
+        }
+    }
+
+    .go-top {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background: @bkgColorSecFaded;
+        color: #fff;
+        z-index: 10;
+        margin: 15px;
+        transition: transform 0.2s, opacity 0.2s, visibility 0.2s;
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+    
+        .scrolled-down & {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

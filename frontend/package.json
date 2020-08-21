@@ -1,0 +1,27 @@
+{
+  "name": "tbajorek-blog",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build-assets": "parcel build assets/main.js --public-url './'",
+    "build": "npm run build-assets",
+    "watch": "parcel watch assets/main.js --public-url './'",
+    "clean": "rm -rf dist/",
+    "fontello": "fontello-cli install --config ./fontello.json --font ./assets/font --css ./assets/css"
+  },
+  "author": "Kamil Drzazga",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "debounce": "^1.2.0",
+    "enquire.js": "^2.1.6",
+    "express": "^4.17.1",
+    "fontello-cli": "^0.5.0",
+    "less": "^3.11.1",
+    "node-watch": "^0.6.4",
+    "parcel-bundler": "^1.12.4",
+    "photoswipe": "^4.1.3",
+    "socket.io": "^2.3.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,159 @@
+# Copyright (C) 2020 Kamil Drzazga
+# This file is distributed under the .
+msgid ""
+msgstr ""
+"Project-Id-Version: Prawe myśli 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/prawe-mysli\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-08-22T21:22:34+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: prawe-mysli\n"
+
+#: 404.php:7
+msgid "Site not found"
+msgstr ""
+
+#: 404.php:8
+msgid "You can find a page using this form or go directly to homepage"
+msgstr ""
+
+#: 404.php:8
+msgid "clicking this link"
+msgstr ""
+
+#: classes/PraweMysli_Customize.php:14
+msgid "Sharing Options"
+msgstr ""
+
+#: classes/PraweMysli_Customize.php:33
+msgid "Url to share on Facebook:"
+msgstr ""
+
+#: classes/PraweMysli_Customize.php:50
+msgid "Url to share on Twitter:"
+msgstr ""
+
+#: classes/PraweMysli_Customize.php:67
+msgid "Url to share on Wykop:"
+msgstr ""
+
+#: functions.php:56
+msgid "Desktop Horizontal Menu"
+msgstr ""
+
+#: functions.php:57
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:107
+msgid "Right sidebar"
+msgstr ""
+
+#: functions.php:109
+msgid "Add widgets here to appear in right sidebar."
+msgstr ""
+
+#: functions.php:139
+msgid "Found %s result"
+msgid_plural "Found %s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions.php:141
+msgid "No post found"
+msgstr ""
+
+#: inc/breadcrumbs.php:18
+msgid "Home"
+msgstr ""
+
+#: inc/breadcrumbs.php:37
+msgid "Search results for"
+msgstr ""
+
+#: inc/breadcrumbs.php:85
+msgid "Articles posted by"
+msgstr ""
+
+#: inc/breadcrumbs.php:87
+msgid "Not found"
+msgstr ""
+
+#: template-parts/menu.php:18
+msgid "Search"
+msgstr ""
+
+#: template-parts/posts-list/list-navigation.php:9
+msgid "Newer posts"
+msgstr ""
+
+#: template-parts/posts-list/list-navigation.php:15
+msgid "Older posts"
+msgstr ""
+
+#: template-parts/posts-list/preview.php:30
+msgid "Read more..."
+msgstr ""
+
+#: template-parts/share.php:8
+msgid "Share this post:"
+msgstr ""
+
+#: template-parts/single-post/posts-navigation.php:10
+#: template-parts/single-post/posts-navigation.php:20
+msgid "Prev"
+msgstr ""
+
+#: widgets/Facebook_Profile_Widget.php:13
+msgid "Facebook profile"
+msgstr ""
+
+#: widgets/Facebook_Profile_Widget.php:14
+msgid "Latest posts from Facebook profile"
+msgstr ""
+
+#: widgets/Facebook_Profile_Widget.php:39
+msgid "Show in Facebook"
+msgstr ""
+
+#: widgets/Facebook_Profile_Widget.php:66
+#: widgets/Newsletter_Widget.php:89
+msgid "Title:"
+msgstr ""
+
+#: widgets/Facebook_Profile_Widget.php:71
+msgid "FB profile name:"
+msgstr ""
+
+#: widgets/Facebook_Profile_Widget.php:73
+msgid "Use from https://www.facebook.com/FB_PROFILE_NAME"
+msgstr ""
+
+#: widgets/Newsletter_Widget.php:17
+msgid "Themed Newsletter"
+msgstr ""
+
+#: widgets/Newsletter_Widget.php:18
+msgid "Personalized widget to add a subscription form"
+msgstr ""
+
+#: widgets/Newsletter_Widget.php:43
+msgid "If you want to receive emails with new posts from here, please add your email address using this form"
+msgstr ""
+
+#: widgets/Newsletter_Widget.php:94
+msgid "Button label:"
+msgstr ""
+
+#: widgets/Newsletter_Widget.php:96
+msgid "Use a short one"
+msgstr ""
+
+#: widgets/Newsletter_Widget.php:101
+msgid "Automatically subscribe to"
+msgstr ""
