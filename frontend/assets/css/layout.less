@@ -249,55 +249,57 @@ textarea {
                 flex: 1;
                 justify-content: flex-end;
                 align-items: center;
-            }
-        }
-    }
+                
+                .search-form {
+                    display: flex;
+                    flex: 0;
+                    transition: flex 0.2s;
+                    align-items: center;
+                    background: rgba(255, 255, 255, 0.15);
+                    margin: 0 10px;
+                    position: relative;
 
-    .page-menu-others, .not-found-block {
-        .search-form {
-            display: flex;
-            flex: 0;
-            transition: flex 0.2s;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.15);
-            margin: 0 10px;
-            position: relative;
+                    &::before {
+                        font-size: 20px;
+                        position: absolute;
+                        margin: 0 6px;
+                    }
 
-            &::before {
-                font-size: 20px;
-                position: absolute;
-                margin: 0 6px;
-            }
+                    &:focus,
+                    &:focus-within {
+                        flex: 1;
+                    }
 
-            &:focus,
-            &:focus-within {
-                flex: 1;
-            }
+                    .search-input {
+                        flex: 1;
+                        border: none;
+                        background: none;
+                        color: #fff;
+                        padding: 6px 6px 6px 32px;
+                        text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+                        width: 130px;
 
-            .search-input {
-                flex: 1;
-                border: none;
-                background: none;
-                color: #fff;
-                padding: 6px 6px 6px 32px;
-                text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
-                width: 250px;
-
-                &::placeholder {
-                    color: #fff;
-                    opacity: 0.5;
+                        &::placeholder {
+                            color: #fff;
+                            opacity: 0.5;
+                        }
+                    }
                 }
-            }
-        }
-    }
 
-    .not-found-block {
-        .search-form {
-            .search-input {
-                &::placeholder {
-                    color: #666;
+                .social-menu {
+
+                    .menu {
+                        padding: 0;
+                        margin: 0;
+                        display: flex;
+                        list-style: none;
+
+                        & > li {
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
                 }
-                border: 2px solid #d7e1e7;
             }
         }
     }

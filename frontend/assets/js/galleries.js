@@ -2,51 +2,49 @@ import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 
 var initPhotoSwipeFromDOM = function(gallerySelector) {
-debugger;
+
     // parse slide data (url, title, size ...) from DOM elements 
     // (children of gallerySelector)
     var parseThumbnailElements = function(el) {
         var thumbElements = el.childNodes,
             numNodes = thumbElements.length,
             items = [],
-            figureEl,
-            linkEl,
+            liEl,
+            imgEl,
+            figcaptionEl,
             size,
             item;
 
         for(var i = 0; i < numNodes; i++) {
 
-            figureEl = thumbElements[i]; // <figure> element
+            liEl = thumbElements[i]; // <li> element
 
             // include only element nodes 
-            if(figureEl.nodeType !== 1) {
+            if(liEl.nodeType !== 1) {
                 continue;
             }
 
-            linkEl = figureEl.children[0]; // <a> element
+            imgEl = liEl.querySelector('img');
+            figcaptionEl = liEl.querySelector('figcaption');
 
-            size = linkEl.getAttribute('data-size').split('x');
+            size = [
+                imgEl.getAttribute('width'),
+                imgEl.getAttribute('height')
+            ];
 
             // create slide object
             item = {
-                src: linkEl.getAttribute('href'),
+                src: imgEl.getAttribute('src'),
                 w: parseInt(size[0], 10),
                 h: parseInt(size[1], 10)
             };
 
-
-
-            if(figureEl.children.length > 1) {
+            if(figcaptionEl) {
                 // <figcaption> content
-                item.title = figureEl.children[1].innerHTML; 
+                item.title = figcaptionEl.innerHTML; 
             }
 
-            if(linkEl.children.length > 0) {
-                // <img> thumbnail element, retrieving thumbnail url
-                item.msrc = linkEl.children[0].getAttribute('src');
-            } 
-
-            item.el = figureEl; // save link to element for getThumbBoundsFn
+            item.el = liEl; // save link to element for getThumbBoundsFn
             items.push(item);
         }
 
@@ -67,7 +65,7 @@ debugger;
 
         // find root element of slide
         var clickedListItem = closest(eTarget, function(el) {
-            return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+            return (el.classList && el.classList.contains('blocks-gallery-item'));
         });
 
         if(!clickedListItem) {
@@ -185,7 +183,6 @@ debugger;
         }
 
         // Pass data to PhotoSwipe and initialize it
-        console.log(items, options)
         gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.init();
     };
@@ -206,4 +203,4 @@ debugger;
 };
 
 // execute above function
-initPhotoSwipeFromDOM('.wp-block-gallery');
+initPhotoSwipeFromDOM('.blocks-gallery-grid');

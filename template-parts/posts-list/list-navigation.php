@@ -2,18 +2,23 @@
 $previousPosts = get_previous_posts_url();
 $nextPosts = get_next_posts_url();
 ?>
-<div class="articles-list-pagination section">
-    <?php if (!empty($previousPosts)) : ?>
-        <a href="<?php echo esc_url($previousPosts); ?>" class="block pagination-item page-prev">
+<div class="article-pagination section">
+    <div class="pagination-block-wrapper page-prev">
+        <?php if (!empty($previousPosts)) : ?>
+        <a href="<?php echo esc_url($previousPosts); ?>" class="block pagination-block">
             <i class="pagination-arrow icon-left-open"></i>
             <p class="pagination-title"><?php echo __('Newer posts', 'prawe-mysli') ?></p>
         </a>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 
-    <?php if (!empty($nextPosts)) : ?>
-        <a href="<?php echo esc_url($nextPosts); ?>" class="block pagination-item page-next">
+    <div class="pagination-block-wrapper page-next">
+        <?php if (!empty($nextPosts)) : ?>
+        <a href="<?php echo esc_url($nextPosts); ?>" class="block pagination-block">
             <p class="pagination-title"><?php echo __('Older posts', 'prawe-mysli') ?></p>
+            <img class="pagination-image" src="{{ page.pagination.next.image }}" alt="{{ page.pagination.next.name }}" />
             <i class="pagination-arrow icon-right-open"></i>
         </a>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 </div>
