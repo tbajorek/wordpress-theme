@@ -16,7 +16,6 @@ $nextPosts = get_next_posts_url();
         <?php if (!empty($nextPosts)) : ?>
         <a href="<?php echo esc_url($nextPosts); ?>" class="block pagination-block">
             <p class="pagination-title"><?php echo __('Older posts', 'prawe-mysli') ?></p>
-            <img class="pagination-image" src="{{ page.pagination.next.image }}" alt="{{ page.pagination.next.name }}" />
             <i class="pagination-arrow icon-right-open"></i>
         </a>
         <?php endif; ?>
