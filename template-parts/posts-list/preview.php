@@ -2,7 +2,10 @@
     <article class="article-preview block section-wrapper">
         <?php if (has_post_thumbnail()) : ?>
             <a href="<?php echo esc_url(get_permalink())?>" class="article-image-wrapper block-pad-break">
-                <img src="<?php echo esc_url(get_the_post_thumbnail_url()) ?>" alt="<?php echo esc_html(the_title()) ?>" class="article-image" />
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'medium')) ?>"
+                     alt="<?php echo esc_html(the_title()) ?>"
+                     class="article-image"
+                />
             </a>
         <?php else: ?>
             <p />
