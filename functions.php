@@ -29,6 +29,7 @@ function prawemysli_theme_support() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
     add_theme_support( 'post-thumbnails' );
+    add_image_size( 'twitter-thumbnail', 250, 250 );
 
     add_theme_support('automatic-feed-links');
     add_theme_support('menus');
